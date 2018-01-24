@@ -1,0 +1,11 @@
+1. CoffeeMaker.java, linia 147
+- Nie można dodać dodatniej liczby cukru
+- Test: InventoryTest -> testAddInventoryWithPositiveSugar()
+
+2. CoffeeMaker.java, linia 176
+- Liczba coffee jest zwiększana zamiast zmniejszana
+- Test: InventoryTest -> testMakeCoffeeCorrectIngredientsAfterwards()
+
+3. CoffeeMaker.java, linia 25
+- Tylko 3 przepisy powinny być dostępne, domyślnie było ich 4
+- Test: RecipeTest -> testOnlyThreeRecipes()
