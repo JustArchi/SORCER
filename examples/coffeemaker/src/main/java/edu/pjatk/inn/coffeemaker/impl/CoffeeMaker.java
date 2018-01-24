@@ -89,7 +89,8 @@ public class CoffeeMaker implements CoffeeMaking, CoffeeService {
         if(r != null) {
 	        for(int i = 0; i < NUM_RECIPES; i++) {
 	            if(r.equals(recipeArray[i])) {
-	                recipeArray[i] = recipeArray[i];  
+	                recipeArray[i] = new Recipe();
+	                recipeFull[i] = false;
 	                canDeleteRecipe = true;
 	            }
 	        }
@@ -207,6 +208,10 @@ public class CoffeeMaker implements CoffeeMaking, CoffeeService {
      * @return Recipe
      */
 	public Recipe getRecipeForName(String name) {
+	    if (name == null) {
+	        return null;
+        }
+
 		Recipe r = null;
 		for(int i = 0; i < NUM_RECIPES; i++) {
 			if(recipeArray[i].getName() != null) { 

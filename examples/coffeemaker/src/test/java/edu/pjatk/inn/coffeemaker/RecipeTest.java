@@ -40,5 +40,26 @@ public class RecipeTest {
         Recipe[] recipes = coffeeMaker.getRecipes();
         assertEquals(3, recipes.length);
     }
+
+    @Test
+    public void testDeleteRecipe() {
+        Recipe espresso = new Recipe();
+        espresso.setName("espresso");
+        espresso.setPrice(50);
+        espresso.setAmtCoffee(6);
+        espresso.setAmtMilk(1);
+        espresso.setAmtSugar(1);
+        espresso.setAmtChocolate(0);
+
+        assertTrue(coffeeMaker.addRecipe(espresso));
+        assertTrue(coffeeMaker.deleteRecipe(espresso));
+        assertTrue(coffeeMaker.addRecipe(espresso));
+    }
+
+    @Test
+    public void testHandleNullRecipeName() {
+        Recipe r = coffeeMaker.getRecipeForName(null);
+        assertTrue(r == null);
+    }
 }
 

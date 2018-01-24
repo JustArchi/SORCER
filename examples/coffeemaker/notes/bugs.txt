@@ -1,11 +1,19 @@
-1. CoffeeMaker.java, linia 147
+1. CoffeeMaker.java, addInventory(int amtCoffee, int amtMilk, int amtSugar, int amtChocolate), linia 148
 - Nie można dodać dodatniej liczby cukru
 - Test: InventoryTest -> testAddInventoryWithPositiveSugar()
 
-2. CoffeeMaker.java, linia 176
+2. CoffeeMaker.java, makeCoffee(Recipe r, int amtPaid), linia 177
 - Liczba coffee jest zwiększana zamiast zmniejszana
 - Test: InventoryTest -> testMakeCoffeeCorrectIngredientsAfterwards()
 
-3. CoffeeMaker.java, linia 25
+3. CoffeeMaker.java, final int NUM_RECIPES, linia 25
 - Tylko 3 przepisy powinny być dostępne, domyślnie było ich 4
 - Test: RecipeTest -> testOnlyThreeRecipes()
+
+4. CoffeeMaker.java, deleteRecipe(Recipe r), linia 87
+- Przepis nie jest odpowiednio usuwany
+- Test: RecipeTest -> testDeleteRecipe()
+
+5. CoffeeMaker.java, getRecipeForName(String name), linia 210
+- program nie obsługuje prawidłowo name, które jest ustawione na wartość null
+- Test: RecipeTest -> testHandleNullRecipeName()
