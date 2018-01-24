@@ -8,6 +8,9 @@ import java.io.Serializable;
 import java.rmi.RemoteException;
 
 /**
+ * Copyright original authors.
+ * A class that represents a recipe object for CoffeeMachine.
+ * Solves INN homework assignment #2
  * @author   Sarah & Mike
  */
 public class Recipe implements Serializable {
