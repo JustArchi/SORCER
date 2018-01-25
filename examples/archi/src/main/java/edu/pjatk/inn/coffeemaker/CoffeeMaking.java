@@ -1,9 +1,12 @@
 package edu.pjatk.inn.coffeemaker;
 
+import edu.pjatk.inn.coffeemaker.impl.Drinker;
+import edu.pjatk.inn.coffeemaker.impl.Favourite;
 import edu.pjatk.inn.coffeemaker.impl.Inventory;
 import edu.pjatk.inn.coffeemaker.impl.Recipe;
 
 import java.rmi.RemoteException;
+import java.util.HashSet;
 
 /**
  * @author  Mike Sobolewski
@@ -78,4 +81,12 @@ public interface CoffeeMaking {
      * @return Recipe
      */
 	public Recipe getRecipeForName(String name)  throws RemoteException;
+
+
+    public boolean addFavourite(Favourite f) throws RemoteException;
+    public boolean removeFavourite(Favourite f) throws RemoteException;
+    public HashSet<Favourite> getFavourites(Drinker d)  throws RemoteException;
+    public boolean addDrinker(Drinker d) throws RemoteException;
+    public Drinker getDrinker(int id)  throws RemoteException;
+    public Drinker getOrCreateDrinker(int id)  throws RemoteException;
 }

@@ -9,7 +9,6 @@ import sorcer.service.ContextException;
 
 import java.rmi.RemoteException;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
 
 /**
@@ -28,76 +27,6 @@ public class CoffeeMaker implements CoffeeMaking, CoffeeService {
 	private boolean [] recipeFull;
 	/** Inventory of the coffee maker */
     private Inventory inventory;
-
-    private HashSet<Drinker> drinkers = new HashSet<>();
-    private HashSet<Favourite> favourites = new HashSet<>();
-
-    public boolean addFavourite(Favourite f) {
-    	if (f == null) {
-    		return false;
-		}
-
-		return favourites.add(f);
-	}
-
-	public boolean removeFavourite(Favourite f) {
-		if (f == null) {
-			return false;
-		}
-
-		return favourites.remove(f);
-	}
-
-	public HashSet<Favourite> getFavourites(Drinker d) {
-		if (d == null) {
-			return null;
-		}
-
-		HashSet<Favourite> result = new HashSet<>();
-
-		for (Favourite f : favourites) {
-			if (f.getDrinker() == d) {
-				result.add(f);
-			}
-		}
-
-		return result;
-	}
-
-	public boolean addDrinker(Drinker d) {
-		if (d == null) {
-			return false;
-		}
-
-		return drinkers.add(d);
-	}
-
-	public Drinker getDrinker(int id) {
-		for (Drinker drinker : drinkers) {
-			if (drinker.getId() == id) {
-				return drinker;
-			}
-		}
-
-		return null;
-	}
-
-	public Drinker getOrCreateDrinker(int id) {
-		for (Drinker drinker : drinkers) {
-			if (drinker.getId() == id) {
-				return drinker;
-			}
-		}
-
-		Drinker drinker = new Drinker();
-		drinker.setId(id);
-
-		if (addDrinker(drinker)) {
-			return drinker;
-		} else {
-			return getDrinker(id);
-		}
-	}
 	
     /**
      * Constructor for the coffee maker
