@@ -58,6 +58,7 @@ include 'examples:pml'
 include 'examples:worker'
 include 'examples:service'
 include 'examples:exchange'
+include 'examples:archi'
 include 'examples:coffeemaker'
 include 'examples:greeter'
 
