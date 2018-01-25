@@ -1,0 +1,9 @@
+#!/usr/bin/env nsh
+
+@Codebase(group='org.sorcer', module='coffeemaker', version='${sorcer.version}', classifier='dl')
+import edu.pjatk.inn.coffeemaker.FavouriteService
+
+task("addFavourite", sig("addFavourite", FavouriteService.class), context(
+        proc("drinker/id", 1),
+        proc("recipe/name", "espresso");
+));

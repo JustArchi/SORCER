@@ -14,6 +14,18 @@ public class FavouriteServiceImpl implements FavouriteService {
 
     private final CoffeeMaker coffeeMaker = new CoffeeMaker(); // TODO: Initialize this instead of hardcoding?
 
+    public FavouriteServiceImpl() {
+        // TODO: This too ;_;
+        Recipe espresso = new Recipe();
+        espresso.setName("espresso");
+        espresso.setPrice(50);
+        espresso.setAmtCoffee(6);
+        espresso.setAmtMilk(1);
+        espresso.setAmtSugar(1);
+        espresso.setAmtChocolate(0);
+        coffeeMaker.addRecipe(espresso);
+    }
+
     @Override
     public Context addFavourite(Context context) throws RemoteException, ContextException {
         try {
