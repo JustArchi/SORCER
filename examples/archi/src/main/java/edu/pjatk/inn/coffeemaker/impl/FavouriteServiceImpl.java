@@ -12,7 +12,11 @@ import java.util.HashSet;
 public class FavouriteServiceImpl implements FavouriteService {
     private final static Logger logger = LoggerFactory.getLogger(FavouriteServiceImpl.class);
 
-    private final CoffeeMaker coffeeMaker = new CoffeeMaker(); // TODO: Initialize this instead of hardcoding?
+    public CoffeeMaker getCoffeeMaker() {
+        return coffeeMaker;
+    }
+
+    private final CoffeeMaker coffeeMaker = new CoffeeMaker();
 
     public FavouriteServiceImpl() {
         // TODO: This too ;_;
