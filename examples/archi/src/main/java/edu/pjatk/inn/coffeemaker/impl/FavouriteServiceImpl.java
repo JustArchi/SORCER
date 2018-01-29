@@ -19,7 +19,6 @@ public class FavouriteServiceImpl implements FavouriteService {
     private final CoffeeMaker coffeeMaker = new CoffeeMaker();
 
     public FavouriteServiceImpl() {
-        // TODO: This too ;_;
         Recipe espresso = new Recipe();
         espresso.setName("espresso");
         espresso.setPrice(50);
