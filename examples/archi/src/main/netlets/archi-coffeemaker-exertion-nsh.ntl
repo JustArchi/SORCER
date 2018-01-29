@@ -1,9 +1,23 @@
 #!/usr/bin/env nsh
 
 @Codebase(group='org.sorcer', module='coffeemaker', version='${sorcer.version}', classifier='dl')
+import edu.pjatk.inn.coffeemaker.CoffeeService
 import edu.pjatk.inn.coffeemaker.FavouriteService
 
-task("addFavourite", sig("addFavourite", FavouriteService.class), context(
+Context espresso = context(proc("name", "espresso"), proc("price", 50),
+                proc("amtCoffee", 6), proc("amtMilk", 0),
+                proc("amtSugar", 1), proc("amtChocolate", 0));
+
+Task coffee = task("coffee", sig("makeCoffee", CoffeeService.class), context(
+        proc("recipe/name", "espresso"),
+        proc("coffee/paid", 120),
+        proc("coffee/change"),
+        proc("recipe", espresso)));
+
+Task addFavourite = task("addFavourite", sig("addFavourite", FavouriteService.class), context(
         proc("drinker/id", 1),
         proc("recipe/name", "espresso");
 ));
+
+job(coffee, addFavourite,
+        pipe(outPoint(coffee, "coffee/change"), inPoint(addFavourite, "favourite/manage")));
